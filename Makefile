@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+         #
+#    By: ozozdemi <ozozdemi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/10 13:58:40 by lgirault          #+#    #+#              #
-#    Updated: 2022/11/21 10:43:35 by lgirault         ###   ########.fr        #
+#    Created: 2022/11/10 13:58:40 by ozozdemi          #+#    #+#              #
+#    Updated: 2022/11/23 13:22:35 by ozozdemi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
