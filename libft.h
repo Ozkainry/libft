@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozozdemi <ozozdemi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:40:42 by ozozdemi          #+#    #+#             */
-/*   Updated: 2022/11/23 12:00:04 by ozozdemi         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:53:15 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@
 # include <string.h>
 # include <stdio.h>
 # include <stdint.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -69,5 +74,28 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* FT_PRINTF */
+int		ft_printf(const char *str, ...);
+void	ft_printf_check(char c, va_list *args, int *len);
+void	ft_putchar_len(char c, int *len);
+void	ft_putstr_len(char *str, int *len);
+void	ft_putnbr_len(int n, int *len);
+void	ft_putnbr_unsigned(unsigned int n, int *len);
+void	ft_putnbr_hexa(unsigned int n, char *base, int *len);
+void	ft_putnbr_hexa2(unsigned long n, char *base, int *len);
+void	ft_ptr(void *ptr, int *len);
+
+/* GET_NEXT_LINE */
+char	*get_next_line(int fd);
+char	*ft_condition(char stash[BUFFER_SIZE], int fd, char *buff, int n);
+char	*init_buff(void);
+char	*ft_join_new_line(char *buff, char *stash);
+char	*ft_join(char *buff, char *stash);
+int		ft_one(char *stash);
+int		ft_check_new_line(char *stash);
+int		strln(char *str);
+int		strlnao(char *str, char c);
+void	init_and_put_one(char *stash, char c);
 
 #endif
