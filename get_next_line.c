@@ -6,7 +6,7 @@
 /*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:37:27 by oztozdem          #+#    #+#             */
-/*   Updated: 2024/11/28 14:54:26 by oztozdem         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:09:10 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,16 +126,4 @@ char	*get_next_line(int fd)
 	if (buff[0] == '\0')
 		return (free(buff), NULL);
 	return (buff);
-}
-
-#include <fcntl.h>
-
-int	main(void)
-{
-	int	fd = open("test.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
 }
