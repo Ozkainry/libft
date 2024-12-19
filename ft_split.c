@@ -3,96 +3,94 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozozdemi <ozozdemi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 17:50:04 by ozozdemi          #+#    #+#             */
-/*   Updated: 2022/11/23 12:11:00 by ozozdemi         ###   ########.fr       */
+/*   Created: 2024/11/12 17:10:07 by oztozdem          #+#    #+#             */
+/*   Updated: 2024/12/19 10:40:32 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_countword(char const *s, char c)
+static int	is_sep(char str, char c)
+{
+	if (c == '\0')
+		return (0);
+	if (str == c)
+		return (1);
+	else
+		return (0);
+}
+
+static int	count_words(char const *str, char c)
 {
 	int	i;
-	int	compt;
+	int	count;
 
 	i = 0;
-	compt = 0;
-	while (s[i] != '\0')
+	count = 0;
+	while (is_sep(str[i], c))
+		i++;
+	while (str[i])
 	{
-		if (s[i] != c)
-		{
-			compt++;
-			while (s[i] != c && s[i] != '\0')
-			{
-				i++;
-			}
-		}
-		else
+		while (str[i] && !is_sep(str[i], c))
+			i++;
+		if (is_sep(str[i], c) || str[i] == '\0')
+			count++;
+		while (str[i] && is_sep(str[i], c))
 			i++;
 	}
-	return (compt);
+	return (count);
 }
 
-static void	ft_free(char **tab, int i)
+static int	ft_wordlen(char const *str, char c)
 {
-	while (i >= 0)
-	{
-		free(tab[i]);
-		i--;
-	}
-	free(tab);
-}
+	int	i;
 
-static char	*ft_split3(char const *s, char c)
-{
-	while ((*s != c) == 1 && *s)
-		s++;
-	return ((char *) s);
-}
-
-static int	ft_split2(char const *s, char c, int i, char **tab)
-{
-	char	*memory;
-	int		j;
-
-	while (*s)
-	{
-		if ((*s != c) == 1)
-		{
-			memory = (char *) s;
-			s = ft_split3(s, c);
-			tab[i] = malloc(((s - memory) + 1) * sizeof(char ));
-			if (tab[i] == NULL)
-			{
-				ft_free(tab, i);
-				return (0);
-			}
-			j = -1;
-			memory--;
-			while (j++, ++memory < s)
-				tab[i][j] = *memory;
-			tab[i++][j] = '\0';
-		}
-		else
-			s++;
-	}
+	i = 0;
+	while (str[i] && !is_sep(str[i], c))
+		i++;
 	return (i);
+}
+
+static void	free_strs(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
 }
 
 char	**ft_split(char const *s, char c)
 {
+	char	**strs;
 	int		i;
-	char	**tab;
+	int		j;
+	int		k;
 
-	if (!s)
-		return (NULL);
-	i = 0;
-	tab = malloc((ft_countword(s, c) + 1) * sizeof(char *));
-	if (!tab)
-		return (NULL);
-	i = ft_split2(s, c, i, tab);
-	tab[i] = NULL;
-	return (tab);
+	strs = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!strs)
+		return (free(strs), NULL);
+	i = -1;
+	k = 0;
+	while (++i < count_words(s, c))
+	{
+		while (is_sep(s[k], c))
+			k++;
+		j = -1;
+		strs[i] = malloc(sizeof(char) * (ft_wordlen(s + k, c) + 1));
+		if (!strs[i])
+			return (free_strs(strs), NULL);
+		while (s[k] && !is_sep(s[k], c))
+			strs[i][++j] = s[k++];
+		strs[i][++j] = '\0';
+		j = k;
+	}
+	strs[i] = NULL;
+	return (strs);
 }

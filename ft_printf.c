@@ -6,7 +6,7 @@
 /*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:42:46 by oztozdem          #+#    #+#             */
-/*   Updated: 2024/11/28 14:54:05 by oztozdem         ###   ########.fr       */
+/*   Updated: 2024/12/19 10:40:10 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
-
-/*int	main(void)
-{
-	char	str[] = "ations";
-	ft_printf("%d\n", ft_printf("%s%c%s %d%i\n", "Salu", 't', str, 4, 2));
-	ft_printf("%d\n", ft_printf("%p, %x, %X, %u, %%\n", str, 42, 42, -2147483648));
-	return (0);
-}*/

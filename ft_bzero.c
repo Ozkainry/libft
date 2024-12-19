@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozozdemi <ozozdemi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 13:42:17 by ozozdemi          #+#    #+#             */
-/*   Updated: 2022/11/09 16:51:45 by ozozdemi         ###   ########.fr       */
+/*   Created: 2024/11/12 09:37:08 by oztozdem          #+#    #+#             */
+/*   Updated: 2024/12/19 10:39:11 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 	char	*tab;
 
-	tab = (char *) s;
+	tab = (char *)s;
 	i = 0;
 	while (i < n)
 	{

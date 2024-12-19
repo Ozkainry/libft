@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozozdemi <ozozdemi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 12:07:32 by ozozdemi          #+#    #+#             */
-/*   Updated: 2022/11/17 18:26:12 by ozozdemi         ###   ########.fr       */
+/*   Created: 2024/11/12 11:05:29 by oztozdem          #+#    #+#             */
+/*   Updated: 2024/12/19 10:41:04 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strrchr(const char *s, int c)
 	char	*tabs;
 
 	i = ft_strlen(s);
-	tabs = (char *) s;
-	c = (char) c;
+	tabs = (char *)s;
+	c = (char)c;
 	while (i >= 0)
 	{
 		if (tabs[i] == c)
