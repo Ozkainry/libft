@@ -6,7 +6,7 @@
 /*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:10:07 by oztozdem          #+#    #+#             */
-/*   Updated: 2024/12/19 10:40:32 by oztozdem         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:43:47 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	**ft_split(char const *s, char c)
 
 	strs = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!strs)
-		return (free(strs), NULL);
+		return (NULL);
 	i = -1;
 	k = 0;
 	while (++i < count_words(s, c))

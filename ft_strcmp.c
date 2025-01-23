@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 11:10:05 by oztozdem          #+#    #+#             */
-/*   Updated: 2024/12/13 12:16:48 by oztozdem         ###   ########.fr       */
+/*   Created: 2025/01/22 14:40:45 by oztozdem          #+#    #+#             */
+/*   Updated: 2025/01/22 14:40:54 by oztozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_strcmp(char *s1, char *s2)
 {
-	size_t			i;
-	unsigned char	*tabs;
+	int	i;
 
 	i = 0;
-	tabs = (unsigned char *)s;
-	while (i < n)
+	while (s1[i] || s2[i])
 	{
-		if (tabs[i] == (unsigned char)c)
-			return (tabs + i);
-		i++;
+		if (s1[i] > s2[i])
+			return (1);
+		else if (s1[i] < s2[i])
+			return (-1);
+		else
+			i++;
 	}
 	return (0);
 }
